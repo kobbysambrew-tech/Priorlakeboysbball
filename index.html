@@ -1,0 +1,1149 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Prior Lake Boys Basketball</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #070707;
+      color: white;
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      z-index: 1000;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      opacity: .55;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      opacity: .5;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      height: 100vh;
+      min-height: 700px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.92) 0%,
+          rgba(0,0,0,.55) 45%,
+          rgba(0,0,0,.2) 100%
+        ),
+        linear-gradient(
+          0deg,
+          #070707 0%,
+          transparent 35%
+        );
+    }
+
+    .slide1 {
+      background-image: url("https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=2000&q=90");
+    }
+
+    .slide2 {
+      background-image: url("https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=2000&q=90");
+    }
+
+    .slide3 {
+      background-image: url("https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=2000&q=90");
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8%;
+      max-width: 1100px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: 5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      opacity: .7;
+      margin-bottom: 18px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .hero h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(80px, 13vw, 190px);
+      line-height: .78;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -5px;
+      overflow: hidden;
+    }
+
+    .hero h1 span {
+      display: block;
+      animation: titleReveal 1.1s cubic-bezier(.16,1,.3,1) forwards;
+      transform: translateY(120%);
+    }
+
+    .hero h1 span:nth-child(2) {
+      animation-delay: .12s;
+    }
+
+    .hero-description {
+      margin-top: 35px;
+      max-width: 500px;
+      line-height: 1.7;
+      color: rgba(255,255,255,.7);
+      font-size: 15px;
+      animation: fadeUp 1s .4s ease forwards;
+      opacity: 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 35px;
+      animation: fadeUp 1s .55s ease forwards;
+      opacity: 0;
+    }
+
+    .btn {
+      padding: 15px 28px;
+      border: 1px solid white;
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: white;
+      color: black;
+      transform: translateY(-3px);
+    }
+
+    .btn-dark {
+      background: white;
+      color: black;
+    }
+
+    /* =========================
+       SLIDER CONTROLS
+    ========================= */
+
+    .slider-controls {
+      position: absolute;
+      z-index: 10;
+      bottom: 45px;
+      right: 7%;
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 45px;
+      height: 3px;
+      background: rgba(255,255,255,.3);
+      cursor: pointer;
+      transition: .4s;
+    }
+
+    .dot.active {
+      background: white;
+      width: 70px;
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    section {
+      padding: 120px 8%;
+      position: relative;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      opacity: .45;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(55px, 8vw, 110px);
+      line-height: .85;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .section-title span {
+      opacity: .35;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text {
+      margin-top: 30px;
+      max-width: 600px;
+      color: rgba(255,255,255,.65);
+      line-height: 1.9;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 40px 30px;
+      background: rgba(255,255,255,.025);
+      transition: .4s;
+    }
+
+    .stat:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,.4);
+    }
+
+    .stat-number {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 70px;
+      font-weight: 900;
+    }
+
+    .stat-label {
+      color: rgba(255,255,255,.45);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       PLAYERS
+    ========================= */
+
+    .players-section {
+      background: #0c0c0c;
+    }
+
+    .players-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 55px;
+    }
+
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .player-card {
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .player-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: .7s;
+    }
+
+    .player-card:hover img {
+      transform: scale(1.08);
+      filter: grayscale(0%);
+    }
+
+    .player-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        0deg,
+        rgba(0,0,0,.95),
+        transparent 65%
+      );
+    }
+
+    .player-info {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      right: 25px;
+    }
+
+    .player-number {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 65px;
+      font-weight: 900;
+      opacity: .25;
+    }
+
+    .player-name {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 30px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .player-position {
+      font-size: 11px;
+      opacity: .5;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* =========================
+       SCHEDULE
+    ========================= */
+
+    .schedule {
+      max-width: 1100px;
+      margin: 60px auto 0;
+    }
+
+    .game {
+      display: grid;
+      grid-template-columns: 100px 1fr 150px;
+      align-items: center;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      transition: .3s;
+    }
+
+    .game:hover {
+      padding-left: 15px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .game-date {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .game-opponent {
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .game-location {
+      font-size: 11px;
+      opacity: .4;
+      margin-top: 5px;
+    }
+
+    .game-status {
+      text-align: right;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       GALLERY
+    ========================= */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-auto-rows: 300px;
+      gap: 12px;
+      margin-top: 60px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+    }
+
+    .gallery-item:first-child {
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .7s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* =========================
+       CTA
+    ========================= */
+
+    .cta {
+      min-height: 550px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.9)),
+        url("https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=2000&q=90")
+        center/cover;
+    }
+
+    .cta h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: clamp(70px, 12vw, 160px);
+      line-height: .8;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .cta p {
+      max-width: 550px;
+      margin: 30px auto;
+      color: rgba(255,255,255,.6);
+      line-height: 1.7;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 50px 8%;
+      border-top: 1px solid rgba(255,255,255,.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: rgba(255,255,255,.4);
+      font-size: 12px;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes titleReveal {
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: 1s cubic-bezier(.16,1,.3,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 85px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .players-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .player-card {
+        height: 430px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-item:first-child {
+        grid-row: span 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      section {
+        padding: 85px 6%;
+      }
+
+      .hero-content {
+        padding: 0 6%;
+      }
+
+      .hero h1 {
+        font-size: 72px;
+        letter-spacing: -3px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .players-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .player-card {
+        height: 350px;
+      }
+
+      .player-name {
+        font-size: 22px;
+      }
+
+      .game {
+        grid-template-columns: 70px 1fr 80px;
+      }
+
+      .game-opponent {
+        font-size: 14px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav>
+    <div class="logo">
+      PRIOR LAKE <span>BASKETBALL</span>
+    </div>
+
+    <ul>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#players">Players</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- =========================
+       HERO SLIDER
+  ========================= -->
+
+  <header class="hero">
+
+    <div class="slide slide1 active"></div>
+    <div class="slide slide2"></div>
+    <div class="slide slide3"></div>
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Prior Lake High School • Boys Basketball
+      </div>
+
+      <h1>
+        <span>Play</span>
+        <span>Different.</span>
+      </h1>
+
+      <p class="hero-description">
+        Welcome to Prior Lake Boys Basketball.
+        Built through discipline, toughness, teamwork and
+        a commitment to getting better every single day.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#schedule" class="btn btn-dark">
+          View Schedule
+        </a>
+
+        <a href="#team" class="btn">
+          Meet The Team
+        </a>
+      </div>
+
+    </div>
+
+    <div class="slider-controls">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       TEAM
+  ========================= -->
+
+  <section id="team">
+
+    <div class="about">
+
+      <div class="reveal">
+
+        <div class="section-label">
+          01 / The Program
+        </div>
+
+        <h2 class="section-title">
+          BUILT<br>
+          <span>TOGETHER.</span>
+        </h2>
+
+        <p class="about-text">
+          Prior Lake Boys Basketball is built around competing,
+          developing players and creating a culture where
+          every possession matters. This is more than basketball.
+          It's about representing Prior Lake with pride.
+        </p>
+
+      </div>
+
+      <div class="stats reveal">
+
+        <div class="stat">
+          <div class="stat-number">01</div>
+          <div class="stat-label">Family</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Work Ethic</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">5</div>
+          <div class="stat-label">On The Floor</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Goal</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PLAYERS
+  ========================= -->
+
+  <section id="players" class="players-section">
+
+    <div class="players-header reveal">
+
+      <div>
+        <div class="section-label">
+          02 / Roster
+        </div>
+
+        <h2 class="section-title">
+          THE<br>
+          <span>PLAYERS.</span>
+        </h2>
+      </div>
+
+    </div>
+
+
+    <div class="players-grid">
+
+      <div class="player-card reveal">
+
+        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=85">
+
+        <div class="player-overlay"></div>
+
+        <div class="player-info">
+          <div class="player-number">01</div>
+          <div class="player-name">Player Name</div>
+          <div class="player-position">Guard</div>
+        </div>
+
+      </div>
+
+
+      <div class="player-card reveal">
+
+        <img src="https://images.unsplash.com/photo-1518407613690-d9fc990e795f?auto=format&fit=crop&w=900&q=85">
+
+        <div class="player-overlay"></div>
+
+        <div class="player-info">
+          <div class="player-number">02</div>
+          <div class="player-name">Player Name</div>
+          <div class="player-position">Guard</div>
+        </div>
+
+      </div>
+
+
+      <div class="player-card reveal">
+
+        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=900&q=85">
+
+        <div class="player-overlay"></div>
+
+        <div class="player-info">
+          <div class="player-number">03</div>
+          <div class="player-name">Player Name</div>
+          <div class="player-position">Forward</div>
+        </div>
+
+      </div>
+
+
+      <div class="player-card reveal">
+
+        <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=900&q=85">
+
+        <div class="player-overlay"></div>
+
+        <div class="player-info">
+          <div class="player-number">04</div>
+          <div class="player-name">Player Name</div>
+          <div class="player-position">Forward</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SCHEDULE
+  ========================= -->
+
+  <section id="schedule">
+
+    <div class="reveal">
+
+      <div class="section-label">
+        03 / Schedule
+      </div>
+
+      <h2 class="section-title">
+        GAME<br>
+        <span>DAY.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="schedule reveal">
+
+      <div class="game">
+
+        <div class="game-date">
+          DEC 05
+        </div>
+
+        <div>
+          <div class="game-opponent">
+            Prior Lake vs Opponent
+          </div>
+
+          <div class="game-location">
+            Prior Lake High School
+          </div>
+        </div>
+
+        <div class="game-status">
+          7:00 PM
+        </div>
+
+      </div>
+
+
+      <div class="game">
+
+        <div class="game-date">
+          DEC 10
+        </div>
+
+        <div>
+          <div class="game-opponent">
+            Prior Lake vs Opponent
+          </div>
+
+          <div class="game-location">
+            Away
+          </div>
+        </div>
+
+        <div class="game-status">
+          7:00 PM
+        </div>
+
+      </div>
+
+
+      <div class="game">
+
+        <div class="game-date">
+          DEC 15
+        </div>
+
+        <div>
+          <div class="game-opponent">
+            Prior Lake vs Opponent
+          </div>
+
+          <div class="game-location">
+            Prior Lake High School
+          </div>
+        </div>
+
+        <div class="game-status">
+          7:00 PM
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       GALLERY
+  ========================= -->
+
+  <section id="gallery" class="players-section">
+
+    <div class="reveal">
+
+      <div class="section-label">
+        04 / Gallery
+      </div>
+
+      <h2 class="section-title">
+        MOMENTS<br>
+        <span>THAT MATTER.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="gallery">
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&q=90">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?auto=format&fit=crop&w=900&q=90">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&w=900&q=90">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1518407613690-d9fc990e795f?auto=format&fit=crop&w=900&q=90">
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=90">
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CTA
+  ========================= -->
+
+  <section class="cta">
+
+    <div class="reveal">
+
+      <div class="section-label">
+        Prior Lake Boys Basketball
+      </div>
+
+      <h2>
+        NEXT<br>
+        PLAY.
+      </h2>
+
+      <p>
+        Every possession. Every practice. Every game.
+        The work doesn't stop when the clock does.
+      </p>
+
+      <a href="#schedule" class="btn btn-dark">
+        See What's Next
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <div>
+      © 2026 Prior Lake Boys Basketball
+    </div>
+
+    <div>
+      Prior Lake High School • Minnesota
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* HERO SLIDER */
+
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    let currentSlide = 0;
+
+    function goToSlide(index) {
+
+      slides.forEach(slide => {
+        slide.classList.remove("active");
+      });
+
+      dots.forEach(dot => {
+        dot.classList.remove("active");
+      });
+
+      slides[index].classList.add("active");
+      dots[index].classList.add("active");
+
+      currentSlide = index;
+    }
+
+
+    function nextSlide() {
+
+      currentSlide++;
+
+      if (currentSlide >= slides.length) {
+        currentSlide = 0;
+      }
+
+      goToSlide(currentSlide);
+    }
+
+
+    setInterval(nextSlide, 5000);
+
+
+    /* SCROLL REVEAL */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("visible");
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.15
+        }
+      );
+
+
+    revealElements.forEach(element => {
+      observer.observe(element);
+    });
+
+
+    /* NAVBAR BACKGROUND */
+
+    window.addEventListener("scroll", () => {
+
+      const nav = document.querySelector("nav");
+
+      if (window.scrollY > 80) {
+        nav.style.background = "rgba(0,0,0,.9)";
+      } else {
+        nav.style.background = "rgba(0,0,0,.55)";
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
