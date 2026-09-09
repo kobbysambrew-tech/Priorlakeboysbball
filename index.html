@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Prior Lake Lakers | Spring Basketball</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
-<style> 
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+rel="stylesheet">
+
+
+<style>
+
+/* =========================
+GLOBAL
+========================= */
 
 *{
 margin:0;
@@ -37,6 +49,7 @@ overflow-x:hidden;
 --white:#ffffff;
 --muted:rgba(255,255,255,.58);
 }
+
 
 /* =========================
 NAVIGATION
@@ -77,8 +90,9 @@ color:var(--gold);
 
 nav ul{
 display:flex;
-gap:34px;
+gap:28px;
 list-style:none;
+align-items:center;
 }
 
 nav a{
@@ -100,6 +114,7 @@ padding:11px 20px;
 border:1px solid var(--gold);
 color:var(--gold)!important;
 }
+
 
 /* =========================
 HERO
@@ -315,6 +330,7 @@ width:70px;
 background:var(--gold);
 }
 
+
 /* =========================
 GENERAL SECTIONS
 ========================= */
@@ -353,6 +369,7 @@ letter-spacing:-2px;
 .section-title span{
 opacity:.25;
 }
+
 
 /* =========================
 PROGRAM
@@ -421,6 +438,7 @@ transparent 60%
 );
 }
 
+
 /* =========================
 INFO CARDS
 ========================= */
@@ -482,6 +500,7 @@ font-size:13px;
 
 line-height:1.7;
 }
+
 
 /* =========================
 SEASON
@@ -563,6 +582,7 @@ border-bottom:1px solid rgba(255,255,255,.1);
 font-size:13px;
 }
 
+
 /* =========================
 PRACTICE
 ========================= */
@@ -593,6 +613,7 @@ font-weight:800;
 .practice-time{
 color:var(--muted);
 }
+
 
 /* =========================
 TOURNAMENTS
@@ -641,6 +662,148 @@ font-size:13px;
 color:var(--muted);
 }
 
+
+/* =========================
+TEAMS
+========================= */
+
+.teams{
+background:#050608;
+}
+
+.teams-intro{
+max-width:650px;
+
+margin-top:30px;
+
+color:var(--muted);
+
+font-size:15px;
+
+line-height:1.8;
+}
+
+.teams-grid{
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:15px;
+
+margin-top:65px;
+}
+
+.team-card{
+position:relative;
+
+padding:40px 35px;
+
+min-height:250px;
+
+background:
+linear-gradient(
+145deg,
+#07152f,
+#0a1935
+);
+
+border:1px solid rgba(255,255,255,.08);
+
+overflow:hidden;
+
+transition:.45s;
+}
+
+.team-card::before{
+content:"";
+
+position:absolute;
+
+width:160px;
+height:160px;
+
+right:-70px;
+top:-70px;
+
+border:1px solid rgba(244,197,66,.2);
+
+transform:rotate(45deg);
+
+transition:.5s;
+}
+
+.team-card:hover{
+transform:translateY(-8px);
+
+border-color:
+rgba(244,197,66,.5);
+}
+
+.team-card:hover::before{
+transform:rotate(45deg) scale(1.25);
+}
+
+.team-number{
+font-family:"Barlow Condensed";
+
+font-size:18px;
+
+font-weight:800;
+
+letter-spacing:3px;
+
+color:var(--gold);
+
+margin-bottom:35px;
+}
+
+.team-card h3{
+font-family:"Barlow Condensed";
+
+font-size:48px;
+
+font-weight:900;
+
+text-transform:uppercase;
+
+line-height:.9;
+
+margin-bottom:18px;
+}
+
+.team-status{
+color:var(--muted);
+
+font-size:12px;
+
+text-transform:uppercase;
+
+letter-spacing:1.5px;
+}
+
+.team-status span{
+color:var(--gold);
+}
+
+.team-arrow{
+position:absolute;
+
+bottom:30px;
+right:30px;
+
+font-size:24px;
+
+color:var(--gold);
+
+transition:.3s;
+}
+
+.team-card:hover .team-arrow{
+transform:translateX(7px);
+}
+
+
 /* =========================
 REGISTRATION
 ========================= */
@@ -654,6 +817,7 @@ rgba(3,7,15,.96)
 url("images/group.jpg");
 
 background-size:cover;
+
 background-position:center;
 
 text-align:center;
@@ -684,6 +848,7 @@ gap:15px;
 
 margin-top:30px;
 }
+
 
 /* =========================
 PAYMENT
@@ -726,8 +891,10 @@ line-height:1.8;
 
 max-width:500px;
 
-margin:auto auto 30px;
+margin:
+auto auto 30px;
 }
+
 
 /* =========================
 CONTACT
@@ -778,6 +945,7 @@ color:var(--gold);
 text-decoration:none;
 }
 
+
 /* =========================
 FOOTER
 ========================= */
@@ -795,6 +963,7 @@ font-size:11px;
 
 color:rgba(255,255,255,.4);
 }
+
 
 /* =========================
 REVEAL
@@ -814,6 +983,7 @@ opacity:1;
 
 transform:translateY(0);
 }
+
 
 /* =========================
 ANIMATIONS
@@ -841,9 +1011,27 @@ transform:translateY(0);
 
 }
 
+
 /* =========================
 MOBILE
 ========================= */
+
+@media(max-width:1000px){
+
+nav ul{
+gap:18px;
+}
+
+nav a{
+font-size:10px;
+}
+
+.teams-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
 
 @media(max-width:850px){
 
@@ -890,6 +1078,7 @@ gap:15px;
 }
 
 }
+
 
 @media(max-width:550px){
 
@@ -945,12 +1134,27 @@ flex-direction:column;
 align-items:center;
 }
 
+.teams-grid{
+grid-template-columns:1fr;
+}
+
+.team-card{
+min-height:220px;
+}
+
+.team-card h3{
+font-size:43px;
+}
+
 }
 
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- =========================
 NAV
@@ -959,18 +1163,43 @@ NAV
 <nav id="navbar">
 
 <div class="logo">
+
 PRIOR LAKE <span>LAKERS</span>
+
 </div>
+
 
 <ul>
 
-<li><a href="#program">Program</a></li>
+<li>
+<a href="#program">
+Program
+</a>
+</li>
 
-<li><a href="#season">Season</a></li>
+<li>
+<a href="#season">
+Season
+</a>
+</li>
 
-<li><a href="#tournaments">Tournaments</a></li>
+<li>
+<a href="#tournaments">
+Tournaments
+</a>
+</li>
 
-<li><a href="#registration">Registration</a></li>
+<li>
+<a href="#teams">
+Teams
+</a>
+</li>
+
+<li>
+<a href="#registration">
+Registration
+</a>
+</li>
 
 <li>
 <a class="nav-button" href="#payment">
@@ -983,6 +1212,7 @@ Pay
 </nav>
 
 
+
 <!-- =========================
 HERO
 ========================= -->
@@ -990,22 +1220,33 @@ HERO
 <header class="hero">
 
 <div class="slide slide1 active"></div>
+
 <div class="slide slide2"></div>
+
 <div class="slide slide3"></div>
+
 
 <div class="hero-content">
 
 <div class="eyebrow">
+
 Prior Lake Lakers • Spring Basketball
+
 </div>
+
 
 <h1>
 
-<span>Play</span>
+<span>
+Play
+</span>
 
-<span>Different.</span>
+<span>
+Different.
+</span>
 
 </h1>
+
 
 <p class="hero-description">
 
@@ -1013,6 +1254,7 @@ Developing basketball players through competition,
 skill development, teamwork and a commitment to getting better.
 
 </p>
+
 
 <div class="hero-buttons">
 
@@ -1022,6 +1264,7 @@ class="btn btn-gold">
 Register Now
 
 </a>
+
 
 <a href="#season"
 class="btn">
@@ -1033,6 +1276,7 @@ Explore Program
 </div>
 
 </div>
+
 
 <div class="slider-controls">
 
@@ -1053,6 +1297,7 @@ onclick="goToSlide(2)">
 </header>
 
 
+
 <!-- =========================
 PROGRAM
 ========================= -->
@@ -1061,19 +1306,26 @@ PROGRAM
 
 <div class="program-grid">
 
+
 <div class="reveal">
 
 <div class="section-label">
+
 01 / The Program
+
 </div>
+
 
 <h2 class="section-title">
 
 BUILT<br>
 
-<span>TO DEVELOP.</span>
+<span>
+TO DEVELOP.
+</span>
 
 </h2>
+
 
 <p class="program-text">
 
@@ -1092,14 +1344,18 @@ offensive and defensive philosophies.
 
 <div class="program-image reveal">
 
-<img src="images/team.jpg">
+<img
+src="images/team.jpg"
+alt="Prior Lake Lakers Basketball Team">
 
 </div>
 
 </div>
+
 
 
 <div class="cards">
+
 
 <div class="card reveal">
 
@@ -1112,11 +1368,14 @@ Player Development
 </h3>
 
 <p>
+
 Players continue improving their skills and
 basketball IQ through practices and games.
+
 </p>
 
 </div>
+
 
 
 <div class="card reveal">
@@ -1130,11 +1389,14 @@ Competition
 </h3>
 
 <p>
+
 Teams compete in tournaments throughout
 the spring season.
+
 </p>
 
 </div>
+
 
 
 <div class="card reveal">
@@ -1148,8 +1410,10 @@ Coaching
 </h3>
 
 <p>
+
 Coaches will be PLHS staff, youth coaches,
 PLAY coaches or PLHS alumni.
+
 </p>
 
 </div>
@@ -1159,30 +1423,39 @@ PLAY coaches or PLHS alumni.
 </section>
 
 
+
 <!-- =========================
 SEASON
 ========================= -->
 
 <section id="season" class="season">
 
+
 <div class="reveal">
 
 <div class="section-label">
+
 02 / Spring Season
+
 </div>
+
 
 <h2 class="section-title">
 
 THE<br>
 
-<span>SEASON.</span>
+<span>
+SEASON.
+</span>
 
 </h2>
 
 </div>
 
 
+
 <div class="season-grid">
+
 
 <div class="big-card reveal">
 
@@ -1190,13 +1463,16 @@ THE<br>
 Season Fee
 </h3>
 
+
 <div class="price">
 $575
 </div>
 
+
 <p>
 The season fee includes:
 </p>
+
 
 <div class="included">
 
@@ -1225,11 +1501,13 @@ The season fee includes:
 </div>
 
 
+
 <div class="big-card reveal">
 
 <h3>
 Tryouts
 </h3>
+
 
 <p>
 
@@ -1237,10 +1515,13 @@ Tryouts will be held at Twin Oaks Jerabek Gym.
 
 </p>
 
+
 <div class="included">
 
 <div>
-<strong>March 10</strong>
+<strong>
+March 10
+</strong>
 </div>
 
 <div>
@@ -1262,56 +1543,76 @@ $20 Tryout Fee if applicable
 </div>
 
 
+
 <!-- PRACTICES -->
 
 <div class="reveal"
 style="margin-top:100px;">
 
 <div class="section-label">
+
 Practice Schedule
+
 </div>
+
 
 <h3 class="section-title"
 style="font-size:70px;">
 
 PRACTICE<br>
 
-<span>TIMES.</span>
+<span>
+TIMES.
+</span>
 
 </h3>
 
 </div>
 
 
+
 <div class="practice-list">
 
+
 <div class="practice-row reveal">
 
 <div class="practice-date">
+
 3RD–6TH
+
 </div>
 
 <div class="practice-time">
+
 6:00 PM – 7:30 PM
+
 </div>
 
 </div>
+
+
 
 <div class="practice-row reveal">
 
 <div class="practice-date">
+
 7TH–11TH
+
 </div>
 
 <div class="practice-time">
+
 7:30 PM – 9:00 PM
+
 </div>
 
 </div>
+
 
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1320,24 +1621,32 @@ TOURNAMENTS
 
 <section id="tournaments" class="tournaments">
 
+
 <div class="reveal">
 
 <div class="section-label">
+
 03 / Competition
+
 </div>
+
 
 <h2 class="section-title">
 
 TOURNAMENT<br>
 
-<span>DATES.</span>
+<span>
+DATES.
+</span>
 
 </h2>
 
 </div>
 
 
+
 <div class="tournament-grid">
+
 
 
 <div class="tournament-column reveal">
@@ -1346,63 +1655,112 @@ TOURNAMENT<br>
 Boys
 </h3>
 
-<div class="tournament">
-
-<span>April 4</span>
-<strong>Heat Starting Point</strong>
-
-</div>
 
 <div class="tournament">
 
-<span>April 11–12</span>
-<strong>MYAS</strong>
+<span>
+April 4
+</span>
+
+<strong>
+Heat Starting Point
+</strong>
 
 </div>
+
 
 <div class="tournament">
 
-<span>April 18</span>
-<strong>MYAS</strong>
+<span>
+April 11–12
+</span>
+
+<strong>
+MYAS
+</strong>
 
 </div>
+
 
 <div class="tournament">
 
-<span>April 18–19</span>
-<strong>Heat / MYAS</strong>
+<span>
+April 18
+</span>
+
+<strong>
+MYAS
+</strong>
 
 </div>
+
 
 <div class="tournament">
 
-<span>April 25–26</span>
-<strong>MYAS Ronald McDonald</strong>
+<span>
+April 18–19
+</span>
+
+<strong>
+Heat / MYAS
+</strong>
 
 </div>
+
 
 <div class="tournament">
 
-<span>May 2–3</span>
-<strong>Heat Meg Vang / MYAS</strong>
+<span>
+April 25–26
+</span>
+
+<strong>
+MYAS Ronald McDonald
+</strong>
 
 </div>
+
 
 <div class="tournament">
 
-<span>May 16–17</span>
-<strong>Spring Champs / Festival</strong>
+<span>
+May 2–3
+</span>
+
+<strong>
+Heat Meg Vang / MYAS
+</strong>
 
 </div>
+
 
 <div class="tournament">
 
-<span>May 30–31</span>
-<strong>MYAS Spring Champs</strong>
+<span>
+May 16–17
+</span>
+
+<strong>
+Spring Champs / Festival
+</strong>
+
+</div>
+
+
+<div class="tournament">
+
+<span>
+May 30–31
+</span>
+
+<strong>
+MYAS Spring Champs
+</strong>
 
 </div>
 
 </div>
+
 
 
 <div class="tournament-column reveal">
@@ -1411,45 +1769,81 @@ Boys
 Girls
 </h3>
 
+
 <div class="tournament">
 
-<span>April 4</span>
-<strong>Heat Battle for Mom</strong>
+<span>
+April 4
+</span>
+
+<strong>
+Heat Battle for Mom
+</strong>
 
 </div>
 
+
 <div class="tournament">
 
-<span>April 11–12</span>
-<strong>MYAS</strong>
+<span>
+April 11–12
+</span>
+
+<strong>
+MYAS
+</strong>
 
 </div>
 
+
 <div class="tournament">
 
-<span>April 25–26</span>
-<strong>MYAS Ronald McDonald</strong>
+<span>
+April 25–26
+</span>
+
+<strong>
+MYAS Ronald McDonald
+</strong>
 
 </div>
 
+
 <div class="tournament">
 
-<span>May 9</span>
-<strong>Block Out Breast Cancer</strong>
+<span>
+May 9
+</span>
+
+<strong>
+Block Out Breast Cancer
+</strong>
 
 </div>
 
+
 <div class="tournament">
 
-<span>May 16–17</span>
-<strong>MYAS</strong>
+<span>
+May 16–17
+</span>
+
+<strong>
+MYAS
+</strong>
 
 </div>
 
+
 <div class="tournament">
 
-<span>May 30–31</span>
-<strong>MYAS</strong>
+<span>
+May 30–31
+</span>
+
+<strong>
+MYAS
+</strong>
 
 </div>
 
@@ -1460,25 +1854,363 @@ Girls
 </section>
 
 
+
+<!-- =========================
+TEAMS
+========================= -->
+
+<section id="teams" class="teams">
+
+
+<div class="reveal">
+
+<div class="section-label">
+
+04 / Teams & Rosters
+
+</div>
+
+
+<h2 class="section-title">
+
+THE<br>
+
+<span>
+LAKERS.
+</span>
+
+</h2>
+
+
+<p class="teams-intro">
+
+Our Spring Basketball program is built around
+player development, competition and continued
+growth throughout the offseason.
+
+Team rosters will be posted here once teams
+are finalized.
+
+</p>
+
+</div>
+
+
+
+<div class="teams-grid">
+
+
+<!-- 3RD GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+01 / BOYS
+</div>
+
+<h3>
+3rd Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- 4TH GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+02 / BOYS
+</div>
+
+<h3>
+4th Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- 5TH GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+03 / BOYS
+</div>
+
+<h3>
+5th Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- 6TH GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+04 / BOYS
+</div>
+
+<h3>
+6th Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- 7TH GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+05 / BOYS
+</div>
+
+<h3>
+7th Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- 8TH GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+06 / BOYS
+</div>
+
+<h3>
+8th Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- 9TH GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+07 / BOYS
+</div>
+
+<h3>
+9th Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- 10TH GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+08 / BOYS
+</div>
+
+<h3>
+10th Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- 11TH GRADE -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+09 / BOYS
+</div>
+
+<h3>
+11th Grade
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+
+<!-- GIRLS -->
+
+<div class="team-card reveal">
+
+<div class="team-number">
+10 / GIRLS
+</div>
+
+<h3>
+Girls Teams
+</h3>
+
+<div class="team-status">
+
+<span>
+Roster Coming Soon
+</span>
+
+</div>
+
+<div class="team-arrow">
+→
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
 <!-- =========================
 REGISTRATION
 ========================= -->
 
 <section id="registration" class="registration">
 
+
 <div class="registration-content reveal">
 
 <div class="section-label">
-04 / Registration
+
+05 / Registration
+
 </div>
+
 
 <h2 class="section-title">
 
 JOIN<br>
 
-<span>THE LAKERS.</span>
+<span>
+THE LAKERS.
+</span>
 
 </h2>
+
 
 <p>
 
@@ -1489,7 +2221,9 @@ basketball teams.
 
 </p>
 
+
 <div class="registration-buttons">
+
 
 <a
 href="YOUR_REGISTRATION_FORM_LINK"
@@ -1500,6 +2234,7 @@ Register Now
 
 </a>
 
+
 <a
 href="#payment"
 class="btn">
@@ -1508,11 +2243,13 @@ Payment Information
 
 </a>
 
+
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1521,38 +2258,53 @@ PAYMENT
 
 <section id="payment" class="payment">
 
+
 <div class="reveal">
 
 <div class="section-label">
-05 / Payment
+
+06 / Payment
+
 </div>
+
 
 <h2 class="section-title">
 
 PAY<br>
 
-<span>REGISTRATION.</span>
+<span>
+REGISTRATION.
+</span>
 
 </h2>
 
 </div>
 
 
+
 <div class="payment-box reveal">
+
 
 <p>
 
 After completing registration,
 payment can be made through Venmo.
 
-Please select <strong>Goods & Services</strong>
+Please select
+<strong>
+Goods & Services
+</strong>
 and cover the applicable fees.
 
 </p>
 
+
 <div class="venmo">
+
 @SchaffSM
+
 </div>
+
 
 <a
 href="https://venmo.com/u/SchaffSM"
@@ -1563,9 +2315,11 @@ Pay With Venmo
 
 </a>
 
+
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1574,24 +2328,32 @@ CONTACT
 
 <section class="contact">
 
+
 <div class="reveal">
 
 <div class="section-label">
-06 / Contact
+
+07 / Contact
+
 </div>
+
 
 <h2 class="section-title">
 
 QUESTIONS?<br>
 
-<span>CONTACT US.</span>
+<span>
+CONTACT US.
+</span>
 
 </h2>
 
 </div>
 
 
+
 <div class="contact-grid">
+
 
 <div class="contact-box reveal">
 
@@ -1599,19 +2361,24 @@ QUESTIONS?<br>
 TJ Schaff
 </h3>
 
+
 <p>
 
 Program Contact
 
-<br><br>
+<br>
+<br>
 
 <a href="tel:9526499917">
+
 952-649-9917
+
 </a>
 
 </p>
 
 </div>
+
 
 
 <div class="contact-box reveal">
@@ -1620,19 +2387,24 @@ Program Contact
 Email
 </h3>
 
+
 <p>
 
 <a href="mailto:TJSCHAFF39@gmail.com">
+
 TJSCHAFF39@gmail.com
+
 </a>
 
 </p>
 
 </div>
 
+
 </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -1642,17 +2414,24 @@ FOOTER
 <footer>
 
 <div>
+
 © 2026 Prior Lake Lakers Basketball
+
 </div>
 
+
 <div>
+
 Spring Basketball • Minnesota
+
 </div>
 
 </footer>
 
 
+
 <script>
+
 
 /* =========================
 SLIDER
@@ -1691,7 +2470,9 @@ function nextSlide(){
 currentSlide++;
 
 if(currentSlide >= slides.length){
+
 currentSlide = 0;
+
 }
 
 goToSlide(currentSlide);
@@ -1700,6 +2481,7 @@ goToSlide(currentSlide);
 
 
 setInterval(nextSlide,5000);
+
 
 
 /* =========================
@@ -1738,6 +2520,7 @@ observer.observe(element)
 );
 
 
+
 /* =========================
 NAVBAR
 ========================= */
@@ -1746,6 +2529,7 @@ window.addEventListener("scroll",()=>{
 
 const nav =
 document.getElementById("navbar");
+
 
 if(window.scrollY > 80){
 
@@ -1763,5 +2547,7 @@ nav.style.background =
 
 </script>
 
+
 </body>
+
 </html>
