@@ -413,6 +413,76 @@ overflow:hidden;
 box-shadow:0 20px 60px rgba(0,0,0,.28);
 }
 
+.wrapup-top{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center;
+}
+
+.wrapup-slider{
+position:relative;
+height:500px;
+overflow:hidden;
+border:1px solid rgba(244,197,66,.28);
+background:#07152f;
+box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+.wrapup-slide{
+position:absolute;
+inset:0;
+background-size:cover;
+background-position:center;
+opacity:0;
+transform:scale(1.05);
+transition:opacity 1.3s ease,transform 6s ease;
+}
+
+.wrapup-slide.active{
+opacity:1;
+transform:scale(1);
+}
+
+.wrapup-slide::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(0deg,rgba(3,7,15,.72),transparent 55%),
+linear-gradient(90deg,rgba(3,7,15,.3),transparent 70%);
+}
+
+.wrapup-slide1{
+background-image:url("images/spring1.jpg");
+}
+
+.wrapup-slide2{
+background-image:url("images/spring2.jpg");
+}
+
+.wrapup-slider-controls{
+position:absolute;
+bottom:25px;
+left:25px;
+z-index:5;
+display:flex;
+gap:8px;
+}
+
+.wrapup-dot{
+height:3px;
+width:38px;
+background:rgba(255,255,255,.35);
+cursor:pointer;
+transition:.4s;
+}
+
+.wrapup-dot.active{
+width:58px;
+background:var(--gold);
+}
+
 .spring-cta::before{
 content:"";
 position:absolute;
@@ -1211,6 +1281,15 @@ right:-15px;
 bottom:-20px;
 }
 
+.wrapup-top{
+grid-template-columns:1fr;
+gap:45px;
+}
+
+.wrapup-slider{
+height:400px;
+}
+
 }
 
 </style>
@@ -1874,6 +1953,8 @@ SPRING 2026 WRAP-UP
 
 <section class="program">
 
+<div class="wrapup-top">
+
 <div class="reveal">
 
 <div class="section-label">
@@ -1903,6 +1984,25 @@ That is a wrap on Prior Lake Spring Ball 2026 🏀
 We had 15 teams, including our first year with 3 girls teams, stay home and compete against a tough spring schedule!
 
 </p>
+
+</div>
+
+
+<div class="wrapup-slider reveal">
+
+<div class="wrapup-slide wrapup-slide1 active"></div>
+
+<div class="wrapup-slide wrapup-slide2"></div>
+
+<div class="wrapup-slider-controls">
+
+<div class="wrapup-dot active" onclick="goToWrapSlide(0)"></div>
+
+<div class="wrapup-dot" onclick="goToWrapSlide(1)"></div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -2678,6 +2778,56 @@ goToSlide(currentSlide);
 
 
 setInterval(nextSlide,5000);
+
+
+/* =========================
+SPRING WRAP-UP SLIDER
+========================= */
+
+const wrapSlides =
+document.querySelectorAll(".wrapup-slide");
+
+const wrapDots =
+document.querySelectorAll(".wrapup-dot");
+
+let currentWrapSlide = 0;
+
+
+function goToWrapSlide(index){
+
+wrapSlides.forEach(slide =>
+slide.classList.remove("active")
+);
+
+wrapDots.forEach(dot =>
+dot.classList.remove("active")
+);
+
+wrapSlides[index].classList.add("active");
+
+wrapDots[index].classList.add("active");
+
+currentWrapSlide = index;
+
+}
+
+
+function nextWrapSlide(){
+
+currentWrapSlide++;
+
+if(currentWrapSlide >= wrapSlides.length){
+
+currentWrapSlide = 0;
+
+}
+
+goToWrapSlide(currentWrapSlide);
+
+}
+
+
+setInterval(nextWrapSlide,5000);
 
 
 
