@@ -402,6 +402,57 @@ line-height:1.9;
 font-size:15px;
 }
 
+.spring-cta{
+position:relative;
+margin-top:65px;
+max-width:900px;
+padding:38px 45px;
+background:linear-gradient(135deg,rgba(7,21,47,.98),rgba(12,20,36,.98));
+border:1px solid rgba(244,197,66,.5);
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,.28);
+}
+
+.spring-cta::before{
+content:"";
+position:absolute;
+left:0;
+top:0;
+bottom:0;
+width:6px;
+background:var(--gold);
+}
+
+.spring-cta::after{
+content:"2027";
+position:absolute;
+right:-20px;
+bottom:-38px;
+font-family:"Barlow Condensed";
+font-size:150px;
+font-weight:900;
+line-height:1;
+color:rgba(244,197,66,.06);
+pointer-events:none;
+}
+
+.spring-cta p{
+position:relative;
+z-index:1;
+margin:0;
+max-width:760px;
+color:#fff;
+font-family:"Barlow Condensed";
+font-size:clamp(28px,3.4vw,52px);
+font-weight:700;
+line-height:1.05;
+letter-spacing:.2px;
+}
+
+.spring-cta p::first-line{
+color:var(--gold);
+}
+
 .program-image{
 height:600px;
 
@@ -1144,6 +1195,20 @@ min-height:220px;
 
 .team-card h3{
 font-size:43px;
+}
+
+.spring-cta{
+padding:30px 25px;
+}
+
+.spring-cta p{
+font-size:30px;
+}
+
+.spring-cta::after{
+font-size:105px;
+right:-15px;
+bottom:-20px;
 }
 
 }
@@ -1973,10 +2038,9 @@ Players ranged from 4th–12th grade for both girls and boys.
 
 
 
-<div class="reveal"
-style="margin-top:65px; max-width:700px;">
+<div class="spring-cta reveal">
 
-<p class="program-text">
+<p>
 
 If this sounds like something you want to be a part of next year, please reach out or look for communication for Spring 2027!
 
@@ -2150,7 +2214,7 @@ Roster Coming Soon
 <div class="team-card reveal">
 
 <div class="team-number">
-05 / BOYS
+BOYS
 </div>
 
 <h3>
